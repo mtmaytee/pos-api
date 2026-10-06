@@ -3,11 +3,13 @@ import os
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import jwt, JWTError
+from src.config import Config
 
 security = HTTPBearer()
 
 # ใช้ SECRET_KEY เดียวกับระบบ Auth กลาง
-SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+SECRET_KEY = Config.JWT_SECRET_KEY
+      
 if not SECRET_KEY:
     raise ValueError("JWT_SECRET_KEY environment variable is required")
 

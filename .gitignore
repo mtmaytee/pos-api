@@ -1,0 +1,7 @@
+# ข้ามโฟลเดอร์ node_modules หรือ venv
+venv/
+
+# ข้ามไฟล์ที่มีข้อมูลลับ
+.env
+
+docker-compose.yml

@@ -10,8 +10,8 @@ services:
     env_file:
       - .env  # โหลดตัวแปรทั้งหมดจากไฟล์ .env เข้า Container
     environment:
-      - DATABASE_URL=postgresql://postgres.mnnlcxyjiajvxffjkedl:admin-pos-db@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres
-      - JWT_SECRET_KEY=supersecretkey
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
     volumes:
       - .:/app
     depends_on:
