@@ -4,4 +4,4 @@ venv/
 # ข้ามไฟล์ที่มีข้อมูลลับ
 .env
 
-docker-compose.yml
+./docker-compose.yml
