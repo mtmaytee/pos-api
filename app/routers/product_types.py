@@ -21,14 +21,14 @@ def create_product_type(item: ProductTypeCreate, db: Session = Depends(get_db), 
     return db_item
 
 @router.get("/{product_type_id}", response_model=ProductTypeResponse)
-def get_product_type(product_type_id: int, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
+def get_product_type(product_type_id: str, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
     db_item = db.query(ProductType).filter(ProductType.product_type_id == product_type_id).first()
     if not db_item:
         raise HTTPException(status_code=404, detail="Product type not found")
     return db_item
 
 @router.put("/{product_type_id}", response_model=ProductTypeResponse)
-def update_product_type(product_type_id: int, item: ProductTypeCreate, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
+def update_product_type(product_type_id: str, item: ProductTypeCreate, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
     db_item = db.query(ProductType).filter(ProductType.product_type_id == product_type_id).first()
     if not db_item:
         raise HTTPException(status_code=404, detail="Product type not found")
@@ -39,7 +39,7 @@ def update_product_type(product_type_id: int, item: ProductTypeCreate, db: Sessi
     return db_item
 
 @router.delete("/{product_type_id}", response_model=ProductTypeResponse)
-def delete_product_type(product_type_id: int, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
+def delete_product_type(product_type_id: str, db: Session = Depends(get_db), user: dict = Depends(get_current_user)):
     db_item = db.query(ProductType).filter(ProductType.product_type_id == product_type_id).first()
     if not db_item:
         raise HTTPException(status_code=404, detail="Product type not found")
